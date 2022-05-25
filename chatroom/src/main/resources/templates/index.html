@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+    </head>
+
+    <body>
+
+        <h2>Welcome!</h2>
+
+        <form action="" method="post" th:object="${user}">
+            <label>Enter Your Designation:</label>
+            <input type="text" th:field="*{designation}" />
+            <div>
+                <button type="submit" id="registrationButton">Register</button>
+            </div>
+
+        </form>
+
+        <script type="text/javascript" src="/static/js/index.js" >
+            var registerButton = document.querySelector('#registrationButton')
+
+
+registerButton.addEventListener( 'click', addUserToSessionStorage())
+
+
+function addUserToSessionStorage () {
+    
+    var designationInput = document.querySelector('#designation')
+    sessionStorage.setItem('username' , JSON.stringify({designation : designationInput}))
+    console.log(designationInput.value)
+}
+        </script>
+    </body>
+
+</html>

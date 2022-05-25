@@ -3,7 +3,7 @@ package com.scottAssignment.chatroom.domain;
 public class User {
 
 	private Long id;
-	private String name;
+	private String designation;
 	
 	
 	public Long getId() {
@@ -12,12 +12,20 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getDesignation() {
+		return designation;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDesignation(String designation) {
+		this.designation = designation;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", designation=" + designation + "]";
+	}
+	
+	
 	
 	
 	
