@@ -1,4 +1,3 @@
+var userObj = JSON.parse(sessionStorage.getItem("sessionUser"));
 
-var userObj = JSON.parse(sessionStorage.getItem('sessionUser'))
-
-console.log(userObj)
+console.log(userObj);

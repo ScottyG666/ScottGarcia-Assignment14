@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Registration</title>
-    </head>
+  <head>
+    <title>Registration</title>
+  </head>
 
-    <body>
+  <body>
+    <h2>Welcome!</h2>
 
-        <h2>Welcome!</h2>
-
-        <form action="" method="post" th:object="${user}">
-            <!--The ID field is being populated within JS using the Date.now() method to create
+    <form action="" method="post" th:object="${user}">
+      <!--The ID field is being populated within JS using the Date.now() method to create
                 a unique ID for each user (as long as multiple users are NOT generated within
                 the same millisecond)-->
-            <input type="hidden" th:field="*{id}" />
-            
-            <label>Enter Your Designation:</label>
-            <input type="text" th:field="*{designation}" />
-            <div>
-                <button type="submit" id="registrationButton">Register</button>
-            </div>
+      <input type="hidden" th:field="*{id}" />
 
-        </form>
+      <label>Enter Your Designation:</label>
+      <input type="text" th:field="*{designation}" />
+      <div>
+        <button type="submit" id="registrationButton">Register</button>
+      </div>
+    </form>
 
-        <script type="text/javascript" src="/js/index.js" ></script>
-    </body>
-
+    <script type="text/javascript" src="/js/index.js"></script>
+  </body>
 </html>

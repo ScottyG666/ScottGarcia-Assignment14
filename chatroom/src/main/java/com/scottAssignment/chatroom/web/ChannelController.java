@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.scottAssignment.chatroom.service.ChannelService;
 
@@ -18,9 +20,29 @@ public class ChannelController {
 	 * GetMapping!!!
 	 */
 	@GetMapping("/channels")
-	public String getWelcome(ModelMap model) {
+	public String getChannels(ModelMap model) {
 		model.put("channels", channelService.retreiveAllChannels());
+		System.out.println(channelService.retreiveAllChannels().size());
+		return "channels";
+	}
+	
+	@PostMapping("channels/createChannel")
+	public String createAccount () {
+		channelService.createNewChannel();
+		
+		
+		return "redirect:/channels";
+	}
+	
+	@GetMapping("/channels/{channelId}")
+	public String displayChannel (ModelMap model, @PathVariable Long channelId) {
+		channelService.getChannelById(channelId);
+		model.put("chennelView", channelId);
 		
 		return "channels";
 	}
+	
+	
+	
 }
+

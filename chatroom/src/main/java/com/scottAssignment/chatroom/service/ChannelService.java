@@ -21,4 +21,13 @@ public class ChannelService {
 		return channelList;
 	}
 
+	public void createNewChannel() {
+	channelRepo.createNewChannel();
+	}
+
+	public void getChannelById(Long channelId) {
+
+		channelRepo.getChannelById(channelId);
+	}
+
 }
