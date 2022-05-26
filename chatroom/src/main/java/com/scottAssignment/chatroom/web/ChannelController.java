@@ -21,8 +21,7 @@ public class ChannelController {
 	 */
 	@GetMapping("/channels")
 	public String getChannels(ModelMap model) {
-		model.put("channels", channelService.retreiveAllChannels());
-		System.out.println(channelService.retreiveAllChannels().size());
+		model.put("channelsView", channelService.retreiveAllChannels());
 		return "channels";
 	}
 	
@@ -36,8 +35,6 @@ public class ChannelController {
 	
 	@GetMapping("/channels/{channelId}")
 	public String displayChannel (ModelMap model, @PathVariable Long channelId) {
-		channelService.getChannelById(channelId);
-		model.put("chennelView", channelId);
 		
 		return "channels";
 	}

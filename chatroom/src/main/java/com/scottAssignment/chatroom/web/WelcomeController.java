@@ -29,7 +29,6 @@ public class WelcomeController {
 	@PostMapping("")
 	public String postRegister (User user) {
 		userService.saveUser(user);
-		System.out.println(user);
 		return "redirect:/channels";
 	}
 	

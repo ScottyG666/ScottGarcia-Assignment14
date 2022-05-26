@@ -31,9 +31,9 @@ public class ChannelRepository {
 		channelList.add(newChannel);
 			}
 
-	public void getChannelById(Long channelId) {
+	public Channel getChannelById(Long channelId) {
 
-		channelList.get(Long.valueOf(channelId).intValue() - 1);
+		return channelList.get(Long.valueOf(channelId).intValue() - 1);
 	}
 	
 	

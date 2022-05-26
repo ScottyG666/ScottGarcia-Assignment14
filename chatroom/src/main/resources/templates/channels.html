@@ -8,37 +8,32 @@
 
   <body>
     <!--This div is displayed as the default page for listing All channels-->
+
     <div>
       <h1>Welcome!</h1>
     </div>
     <div>
       <h3>Please Select a Channel:</h3>
     </div>
-    <div th:if="${#lists.size(chennelView) != 1}">
-      <!--
+    <!--
                 This is where the listed channels are going to be, with a link the the respective channel
             -->
-      <div th:each="channel : ${channels}">
-        <a
-          th:href="@{/channels/{channelId}(channelId = ${channel.id})}"
-          target="_self"
-        >
-          <h5 th:text="${channel.channelName}"></h5>
-        </a>
-      </div>
-      <!--
+    <div th:each="channel : ${channelsView}">
+      <a
+        th:href="@{/channels/{channelId}(channelId = ${channel.id})}"
+        target="_self"
+      >
+        <h5 th:text="${channel.channelName}"></h5>
+      </a>
+    </div>
+    <!--
                 Below this is going to be a button that links to a page for creating a new chat room
             -->
-      <div>
-        <form action="/channels/createChannel" method="post" target="_self">
-          <button type="submit" value="Add a Chat Room">Add A Chat Room</button>
-        </form>
-      </div>
+    <div>
+      <form action="/channels/createChannel" method="post" target="_self">
+        <button type="submit" value="Add a Chat Room">Add A Chat Room</button>
+      </form>
     </div>
-
-    <!--This Div will display when a particular chat room ID is designated in the URL
-                    and we are viewing that specific chat room-->
-    <div th:unless="${#lists.size(chennelView) != 1}"></div>
 
     <script type="text/javascript" src="/js/channels.js"></script>
   </body>
