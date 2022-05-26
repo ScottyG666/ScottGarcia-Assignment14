@@ -22,16 +22,16 @@
         <!--
             This is where the listed channels are going to be, with a link the the respective channel
         -->
-        <div >
-            <a href="#" target="_self">
-                <h6>General Channel</h6>
+        <div th:each="channel : ${channels}">
+            <a th:href="/channels/{channelId}(channelId = ${channel.Id})" target="_self">
+                <h6 th:text="${channel.channelName}"></h6>
             </a>
         </div>
         <!--
             Below this is going to be a button that links to a page for creating a new chat room
         -->
         <div>
-            <form action="" target="_self">
+            <form th:action="@{}" target="_self">
     
                 <button type="submit" value="Add a Chat Room">Add A Chat Room</button>
                 
