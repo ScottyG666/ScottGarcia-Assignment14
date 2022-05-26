@@ -9,6 +9,11 @@
         <h2>Welcome!</h2>
 
         <form action="" method="post" th:object="${user}">
+            <!--The ID field is being populated within JS using the Date.now() method to create
+                a unique ID for each user (as long as multiple users are NOT generated within
+                the same millisecond)-->
+            <input type="hidden" th:field="*{id}" />
+            
             <label>Enter Your Designation:</label>
             <input type="text" th:field="*{designation}" />
             <div>
@@ -17,20 +22,7 @@
 
         </form>
 
-        <script type="text/javascript" src="/static/js/index.js" >
-            var registerButton = document.querySelector('#registrationButton')
-
-
-registerButton.addEventListener( 'click', addUserToSessionStorage())
-
-
-function addUserToSessionStorage () {
-    
-    var designationInput = document.querySelector('#designation')
-    sessionStorage.setItem('username' , JSON.stringify({designation : designationInput}))
-    console.log(designationInput.value)
-}
-        </script>
+        <script type="text/javascript" src="/js/index.js" ></script>
     </body>
 
 </html>

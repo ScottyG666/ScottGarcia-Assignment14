@@ -13,7 +13,6 @@ public class UserRepository {
 	List<User> registeredUsers = new ArrayList<>();
 
 	public User save(User user) {
-		user.setId((long) registeredUsers.size() + 1);
 		registeredUsers.add(user);
 		return user;
 		

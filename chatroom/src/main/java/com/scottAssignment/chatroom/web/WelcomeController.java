@@ -30,15 +30,8 @@ public class WelcomeController {
 	public String postRegister (User user) {
 		userService.saveUser(user);
 		System.out.println(user);
-		return "redirect:/welcome";
+		return "redirect:/channels";
 	}
 	
-	/*	Figure out how to pass the user from the postRegister into this 
-	 * GetMapping!!!
-	 */
-	@GetMapping("/welcome")
-	public String getWelcome(ModelMap model ,User user) {
-		
-		return "welcome";
-	}
+	
 }
