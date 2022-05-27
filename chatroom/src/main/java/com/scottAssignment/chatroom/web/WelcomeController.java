@@ -19,8 +19,7 @@ public class WelcomeController {
 	// the user and pass it on to the POSTMAPPING where the from submits too
 	@GetMapping("")
 	public String getRegister(ModelMap model) {
-		User user = new User();
-		model.put("user", user);
+		model.put("user", new User());
 		return "index";
 	}
 

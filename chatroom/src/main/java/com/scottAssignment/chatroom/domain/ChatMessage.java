@@ -5,6 +5,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ChatMessage {
 	
+	public ChatMessage () {}
+	
+	public ChatMessage (User user, String message) {
+		this.sentBy = user;
+		this.context = message;
+	}
+	
 	private User sentBy;
 	private String context;
 	
@@ -20,6 +27,11 @@ public class ChatMessage {
 	}
 	public void setContext(String context) {
 		this.context = context;
+	}
+
+	@Override
+	public String toString() {
+		return "ChatMessage [sentBy=" + sentBy.getDesignation() + ", context=" + context + "]";
 	}
 	
 	

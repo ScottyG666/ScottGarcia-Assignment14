@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title th:text="${channel.channelName}"></title>
+      <script type="text/javascript" src="/js/redirect.js"></script> 
+      <title th:text="${chatroom.channelName}"></title>  
 
-    <script type="text/javascript" src="/js/redirect.js"></script>
+      <script type="text.javascript" src="/js/retrieveMessages.js"></script>
+
   </head>
 
   <body>
-    <div id="chatContainer" th:if="${#lists.size(channel.messages) != 0}">
+  
+    <div id="chatContainer" th:if="${#lists.size(chatroom.messages) != 0}">
       <div th:each="chatMessage : ${channel.messages}">
         <span
           th:text="${chatMessage.sentBy.designation}:${chatMessage.context}"
         ></span>
       </div>
-    </div>
+    </div> 
+  
     <div>
-      <form action="">
-        <div>
-          <label>Enter Message:</label>
-        </div>
-        <div></div>
-      </form>
-    </div>
+        <!--The form containing the users TextArea-->
+        <form id="chatForm">
+          <div>
+            <label>Enter Message:</label>
+          </div>
+          <div>
+              <textarea id="userMessage" rows="3" cols="75"></textarea>
+              <button id="chatSubmitBtn" type="submit" >Hidden button to post text</button>
+          </div>
+          <input type="text" id="usersId" th:field="${user.id}" />
+          <input type="text" id="userDesignation" th:field="${user.designation}"/>
+        </form>
+      </div>
+
+    <!--
+    <div>
+        <form id="chatForm">
+          <div>
+            <label>Enter Message:</label>
+          </div>
+          <div>
+              
+              <textarea th:field="${chatMessage}" rows="3" cols="75"></textarea>
+              <button id="chatSubmitBtn" type="submit" >Hidden button to post text</button>
+          </div>
+          <input type="text" id="usersId" th:field="${user.id}" />
+          <input type="text" id="userDesignation" th:field="${user.designation}"/>
+        </form>
+      </div>
+    -->
+
+    <script type="text/javascript" src="/js/channels.js"></script>
   </body>
 </html>
