@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  
+    <!--Container  which is going to be the reception area for messages connected to this channel-->
     <div id="chatContainer" th:if="${#lists.size(chatroom.messages) != 0}">
       <div th:each="chatMessage : ${channel.messages}">
         <span
@@ -17,7 +17,10 @@
         ></span>
       </div>
     </div> 
+    <!--^^End of the chat messages container^^-->
   
+    <!--Below  this is the container for the form that will push the chat message'
+          to the postmapping endpoint using a fetch so the page doesnt need to be reloaded-->
     <div>
         <!--The form containing the users TextArea-->
         <form id="chatForm">
@@ -32,6 +35,8 @@
           <input type="text" id="userDesignation" th:field="${user.designation}"/>
         </form>
       </div>
+
+      <!--^^ End point for the form conatiner^^-->
 
     <!--
     <div>

@@ -36,6 +36,13 @@ public class ChannelController {
 		return "redirect:/channels";
 	}
 	
+	
+	/*
+	 * This GET MApping will be MULTIFUNCTIONAL
+	 * 	1) The initial landing page for all channels
+	 * 	2) the Fetch request will  query this endpoint for  Messages particular
+	 * 		To this channel
+	 */
 	@GetMapping("/channels/{channelId}")
 	public String getChannelDisplay (ModelMap model, @PathVariable Long channelId) {
 		Channel channel = channelService.getChannelById(channelId);

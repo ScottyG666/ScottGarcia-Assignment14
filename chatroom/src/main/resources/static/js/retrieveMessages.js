@@ -9,9 +9,6 @@ const chatForm = document.querySelector('#chatForm')
 //  the window
 chatForm.addEventListener('submit' , e => {
     e.preventDefault()
-
-
-
     const formData = new FormData(this)
     fetch(`http://localhost:8080/channels` , {
         method : "POST" ,
@@ -22,6 +19,10 @@ chatForm.addEventListener('submit' , e => {
     })
 })
 
+
+
+//Write the query that will  reach out to the GETMAPPING("/channels/{channelID}") to retrieve
+//  the messages contained  within the channels  ${messages} list and add them to  the view
 
 
 
