@@ -1,4 +1,5 @@
 const chatBox = document.getElementById("formTextArea")
+
 // Sets an event listener on the TextArea to POST the form upon
 //  pressing *Enter* on a traditional keyboard INSTEAD of going
 //  to a new line

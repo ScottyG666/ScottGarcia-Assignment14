@@ -60,7 +60,15 @@ public class ChannelController {
 		
 		Channel recievedChannel = channelService.getChannelById(channelId);
 		
+		recievedChannel.getMessages().add(recievedMessage);
 		System.out.println(recievedMessage);
+		
+		System.out.println("printing messages");
+		
+		recievedChannel.getMessages().forEach((message) -> {
+			System.out.println(message);
+		});
+		
 		return "redirect:/channels/" + recievedChannel.getId();
 	}
 	

@@ -29,7 +29,7 @@
             <label>Enter Message:</label>
           </div>
           <div>
-              <textarea id="formTextArea" rows="2" cols="50"></textarea>
+              <textarea id="formTextArea" th:field="${chatMessage}" rows="2" cols="50" autofocus></textarea>
           </div>
           <input type="hidden" id="usersId" th:field="${user.userId}" />
           <input type="hidden" id="userDesignation" th:field="${user.designation}"/>
@@ -38,6 +38,5 @@
       <!--^^ End point for the form conatiner^^-->
 
     <script type="text/javascript" src="/js/retrieveMessages.js"></script>
-    <script type="text/javascript" src="/js/channels.js"></script>
   </body>
 </html>
