@@ -29,7 +29,7 @@
             <label>Enter Message:</label>
           </div>
           <div>
-              <textarea id="formTextArea" th:field="${chatMessage}" rows="2" cols="50" autofocus></textarea>
+              <textarea id="formTextArea" th:field="${chatMessage.context}" rows="2" cols="50" autofocus></textarea>
           </div>
           <input type="hidden" id="usersId" th:field="${user.userId}" />
           <input type="hidden" id="userDesignation" th:field="${user.designation}"/>
