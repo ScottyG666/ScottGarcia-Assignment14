@@ -2,14 +2,14 @@
 <html>
   <head>
       <script type="text/javascript" src="/js/redirect.js"></script> 
-      <title th:text="${chatroom.channelName}"></title>  
-
-      <script type="text.javascript" src="/js/retrieveMessages.js"></script>
+      <title th:text="${chatroom.channelName}"></title>
+     
 
   </head>
 
   <body>
     <!--Container  which is going to be the reception area for messages connected to this channel-->
+    <!--
     <div id="chatContainer" th:if="${#lists.size(chatroom.messages) != 0}">
       <div th:each="chatMessage : ${channel.messages}">
         <span
@@ -17,44 +17,27 @@
         ></span>
       </div>
     </div> 
+    
+    -->
     <!--^^End of the chat messages container^^-->
-  
-    <!--Below  this is the container for the form that will push the chat message'
-          to the postmapping endpoint using a fetch so the page doesnt need to be reloaded-->
+
+    
     <div>
         <!--The form containing the users TextArea-->
-        <form id="chatForm">
+        <form th:action="@{/channels/{channelId} (channelId = ${chatroom.id})}" method="post">
           <div>
             <label>Enter Message:</label>
           </div>
           <div>
-              <textarea id="userMessage" rows="3" cols="75"></textarea>
-              <button id="chatSubmitBtn" type="submit" >Hidden button to post text</button>
+              <textarea id="formTextArea" rows="2" cols="50"></textarea>
           </div>
-          <input type="text" id="usersId" th:field="${user.id}" />
-          <input type="text" id="userDesignation" th:field="${user.designation}"/>
+          <input type="hidden" id="usersId" th:field="${user.userId}" />
+          <input type="hidden" id="userDesignation" th:field="${user.designation}"/>
         </form>
       </div>
-
       <!--^^ End point for the form conatiner^^-->
 
-    <!--
-    <div>
-        <form id="chatForm">
-          <div>
-            <label>Enter Message:</label>
-          </div>
-          <div>
-              
-              <textarea th:field="${chatMessage}" rows="3" cols="75"></textarea>
-              <button id="chatSubmitBtn" type="submit" >Hidden button to post text</button>
-          </div>
-          <input type="text" id="usersId" th:field="${user.id}" />
-          <input type="text" id="userDesignation" th:field="${user.designation}"/>
-        </form>
-      </div>
-    -->
-
+    <script type="text/javascript" src="/js/retrieveMessages.js"></script>
     <script type="text/javascript" src="/js/channels.js"></script>
   </body>
 </html>

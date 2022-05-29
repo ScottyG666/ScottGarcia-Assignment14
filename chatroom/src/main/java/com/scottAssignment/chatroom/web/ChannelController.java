@@ -52,11 +52,16 @@ public class ChannelController {
 		return "chatroom";
 	}
 	
+	
+	// THE MESSAGE MUST BE SAVED TO THE DESIGNATED CHANNEL!!!!
 	@PostMapping("/channels/{channelId}")
-	public String postMessageToChatroom (User user, String context,Channel channel) {
-		ChatMessage recievedMessage = new ChatMessage(user, context);
+	public String postMessageToChatroom (@PathVariable Long channelId, User user, String chatMessage) {
+		ChatMessage recievedMessage = new ChatMessage(user, chatMessage);
+		
+		Channel recievedChannel = channelService.getChannelById(channelId);
+		
 		System.out.println(recievedMessage);
-		return "redirect:";
+		return "redirect:/channels/" + recievedChannel.getId();
 	}
 	
 	

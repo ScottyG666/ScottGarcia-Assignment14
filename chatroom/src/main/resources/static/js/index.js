@@ -1,6 +1,6 @@
 var registerButton = document.querySelector("#registrationButton");
 var designationInput = document.querySelector("#designation");
-var hiddenId = document.querySelector("#id");
+var hiddenId = document.querySelector("#userId");
 
 hiddenId.value = Date.now();
 

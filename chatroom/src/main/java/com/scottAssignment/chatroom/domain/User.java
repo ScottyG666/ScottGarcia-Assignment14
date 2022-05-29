@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
 
-	private Long id;
+	private Long userId;
 	private String designation;
 	
 	
-	public Long getId() {
-		return id;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	public String getDesignation() {
 		return designation;
@@ -21,13 +21,10 @@ public class User {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", designation=" + designation + "]";
+		return "User [userId=" + userId + ", designation=" + designation + "]";
 	}
-	
 	
 	
 	

@@ -1,6 +1,34 @@
-var chatBox = document.querySelector('#userMessage')
+const chatBox = document.getElementById("formTextArea")
+// Sets an event listener on the TextArea to POST the form upon
+//  pressing *Enter* on a traditional keyboard INSTEAD of going
+//  to a new line
+chatBox.addEventListener('keypress', e => {
+    if(e.which === 13) {
+        console.log(e.target.value)
+        e.target.form.dispatchEvent(new Event("submit" , {cancelable: true}));
+        e.preventDefault();
+        e.target.value = "";
+    }
+})
 
 
+
+
+
+
+
+
+/*
+document.getElementById('chatForm').addEventListener('submit' , event => {
+    event.preventDefault();
+    console.log('form submitted')
+})
+
+*/
+
+
+
+/*
 //queries the document for the form that the 
 //  Users Text will submitting to
 const chatForm = document.querySelector('#chatForm')
@@ -23,33 +51,8 @@ chatForm.addEventListener('submit' , e => {
 
 //Write the query that will  reach out to the GETMAPPING("/channels/{channelID}") to retrieve
 //  the messages contained  within the channels  ${messages} list and add them to  the view
-
-
-
-
-
-
-
-
-
-//triggers the form to submit when enter is pressed.
-    //STILL NEED TO RECONFIGURE HOW SUBMIT POST HAPPENS W/ FETCH
-chatBox.addEventListener( "keydown" , (event) => {
-
-    //Checking if the Enter Key has been pressed
-    if (  (window.event ? event.keyCode : e.witch) == 13) {
-        //Submit text box form to chatroom
-        document.forms[0].submit()
-    }})
-
-
-    /*
-function present(e) {
-
-    //Checking if the Enter Key has been pressed
-    if (  (window.event ? event.keyCode : e.witch) == 13) {
-        //Submit text box form to chatroom
-        document.forms[0].submit()
-    }
+function fetchMessagesForDisplay () {
+    
 }
+
 */
