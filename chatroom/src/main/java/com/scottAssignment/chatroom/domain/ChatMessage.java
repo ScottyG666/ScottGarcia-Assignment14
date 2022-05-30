@@ -31,7 +31,7 @@ public class ChatMessage {
 
 	@Override
 	public String toString() {
-		return "ChatMessage [sentBy=" + sentBy.getDesignation() + ", context=" + context + "]";
+		return "ChatMessage [sentBy=" + sentBy + ", context=" + context + "]";
 	}
 	
 	

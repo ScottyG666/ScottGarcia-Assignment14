@@ -31,7 +31,6 @@ public class ChannelRepository {
 	
 	//changed to take advantage of MAP
 	public Channel getChannelById(Long channelId) {
-
 		return channelList.get(channelId);
 	}
 
@@ -39,7 +38,7 @@ public class ChannelRepository {
 	public void createNewChannel() {
 		Channel newChannel = new Channel();
 		newChannel.setChannelName("Channel #" + channelList.size());
-		newChannel.setId( Integer.valueOf(channelList.size()).longValue());
+		newChannel.setId( Integer.valueOf(channelList.size()).longValue() + 1);
 		
 		channelList.put(newChannel.getId(), newChannel);
 			}

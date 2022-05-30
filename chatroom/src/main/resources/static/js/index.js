@@ -11,5 +11,5 @@ registerButton.addEventListener("click", () => {
     username: designationInput.value,
   };
   // SessinStorage can only hold string, so we must stringify the user to store it within the session
-  sessionStorage.setItem("sessionUser", JSON.stringify(user));
+  sessionStorage.setItem('sessionUser', JSON.stringify(user));
 });

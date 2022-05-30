@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
   <head>
       <script type="text/javascript" src="/js/redirect.js"></script> 
-      <title th:text="${chatroom.channelName}"></title>
-     
+      <title th:text="${channel.channelName}"></title>
+      <link rel="stylesheet" type="text/css" src="chatroom.css">
 
+      <style>
+        body {
+          padding: 5px;
+        }
+
+        .chatWrapper {
+          border: 1.5px solid black;
+          border-radius: 2px;
+          padding: 2px 0px 2px 1px;
+          }
+        </style>
   </head>
 
   <body>
     <!--Container  which is going to be the reception area for messages connected to this channel-->
-    <!--
-    <div id="chatContainer" th:if="${#lists.size(chatroom.messages) != 0}">
-      <div th:each="chatMessage : ${channel.messages}">
-        <span
-          th:text="${chatMessage.sentBy.designation}:${chatMessage.context}"
-        ></span>
+    
+    <div class="chatWrapper" >
+      <div class="messageWrapper" th:each="chatMessage : ${chatroomMessages}">
+        
+        <strong>
+        <span th:inline="text"> [[${chatMessage.sentBy.designation}]]:</span>
+        </strong>
+        
+        <span th:text="${chatMessage.context}"></span>
+      
       </div>
     </div> 
     
-    -->
     <!--^^End of the chat messages container^^-->
 
     
     <div>
         <!--The form containing the users TextArea-->
-        <form th:action="@{/channels/{channelId} (channelId = ${chatroom.id})}" method="post">
+        <form th:action="@{/channels/{channelId} (channelId = ${channel.id})}" method="post">
           <div>
             <label>Enter Message:</label>
           </div>
           <div>
               <textarea id="formTextArea" th:field="${chatMessage.context}" rows="2" cols="50" autofocus></textarea>
           </div>
-          <input type="hidden" id="usersId" th:field="${user.userId}" />
+          <input type="hidden" id="userId" th:field="${user.userId}" />
           <input type="hidden" id="userDesignation" th:field="${user.designation}"/>
         </form>
       </div>

@@ -18,25 +18,20 @@ public class ChannelService {
 	private ChannelRepository channelRepo;
 
 	public List<Channel> retreiveAllChannels() {
-		
 		return channelRepo.getChannelList().entrySet()
 										   .stream()
 										   .map(Map.Entry::getValue)
-										   .collect(Collectors.toList());
- 
-	}
+										   .collect(Collectors.toList());	}
 
 	public void createNewChannel() {
-	channelRepo.createNewChannel();
+		channelRepo.createNewChannel();
 	}
 
 	public Channel getChannelById(Long channelId) {
-
 		return channelRepo.getChannelById(channelId);
 	}
 
 	public void addMessageToChannel(Long channelId, ChatMessage chatMessage) {
-
 		channelRepo.addMessageToChannel(channelId, chatMessage);
 	}
 

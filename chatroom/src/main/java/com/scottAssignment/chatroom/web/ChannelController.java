@@ -46,7 +46,8 @@ public class ChannelController {
 	@GetMapping("/channels/{channelId}")
 	public String getChannelDisplay (ModelMap model, @PathVariable Long channelId) {
 		Channel channel = channelService.getChannelById(channelId);
-		model.put("chatroom", channel);
+		model.put("channel", channel);
+		model.put("chatroomMessages", channel.getMessages());
 		model.put("user", new User());
 		model.put("chatMessage", new ChatMessage() );
 		return "chatroom";
@@ -68,13 +69,10 @@ public class ChannelController {
 		channelService.addMessageToChannel(channelId, chatMessage);
 		
 		System.out.println("printing messages");
-		
-		
-		/*
-		recievedChannel.getMessages().forEach((message) -> {
+		channelService.getChannelById(channelId).getMessages().forEach( message -> {
 			System.out.println(message);
 		});
-		*/
+		
 		
 		return "redirect:/channels/" + channelId;
 	}
