@@ -49,44 +49,4 @@ public class ChannelRepository {
 	}
 	
 	
-	
-	
-	//**********METHODS BELOW THIS ARE LEGACY FROM USING ARRAYLIST INSTEAD OF MAP********
-	
-	/*
-	
-	private List<Channel> channelList = new ArrayList<>();
-	
-	public List<Channel> getChannelList() {
-		return channelList;
-	}
-	
-	public void setChannelList(List<Channel> channelList) {
-		this.channelList = channelList;
-	}
-	
-	
-	public void createNewChannel() {
-		Channel newChannel = new Channel();
-		newChannel.setChannelName("Channel #" + channelList.size());
-		newChannel.setId( Integer.valueOf(channelList.size()).longValue());
-		channelList.add(newChannel);
-	}
-	
-	public Channel saveChannel(Channel channel) {
-		channelList.add(channel);
-		return channel;
-	}
-	
-	
-	
-	
-	
-	//method using the array list *TO BE UPDATED TO USER MAP*
-	public Channel getChannelById(Long channelId) {
-
-		return channelList.get(Long.valueOf(channelId).intValue() - 1);
-	}
-	*/
-	
 }
