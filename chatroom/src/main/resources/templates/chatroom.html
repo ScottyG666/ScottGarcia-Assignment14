@@ -21,15 +21,9 @@
   <body>
     <!--Container  which is going to be the reception area for messages connected to this channel-->
     
-    <div class="chatWrapper" >
-      <div class="messageWrapper" th:each="chatMessage : ${chatroomMessages}">
-        
-        <strong>
-        <span th:inline="text"> [[${chatMessage.sentBy.designation}]]:</span>
-        </strong>
-        
-        <span th:text="${chatMessage.context}"></span>
-      
+    <div class="chatWrapper" th:unless="${#lists.isEmpty(chatroomMessages)}">
+      <div class="messageWrapper"  th:each="chatMessage : ${chatroomMessages}">
+        <span><strong> [[${chatMessage.sentBy.designation}]]:</strong> [[${chatMessage.context}]]</span>
       </div>
     </div> 
     
@@ -50,7 +44,19 @@
         </form>
       </div>
       <!--^^ End point for the form conatiner^^-->
+      <div>
+        <button id="fetchBtn" type="button">Click to fetch</button>
+       </div>
 
+       <script th:inline="javascript">
+        /*<![CDATA[*/
+        
+            var list = /*[[${chatroomMessages}]]*/ 'default';
+            console.log(message);
+        
+        /*]]>*/
+        </script>
+        
     <script type="text/javascript" src="/js/retrieveMessages.js"></script>
   </body>
 </html>

@@ -20,7 +20,17 @@ document.querySelector('#userDesignation').value = user.username
 
 
 
-console.log( document.getElementById("formTextArea").innerHTML)
+
+document.querySelector('#fetchBtn').addEventListener('click' , () => {
+    var pathURL = window.location.pathname
+    fetch(pathURL + '/retrieveMessages')
+        .then(returned => returned.json())
+        .then( data => {
+            //console.log(data)
+        })
+
+    })
+
 
 
 
