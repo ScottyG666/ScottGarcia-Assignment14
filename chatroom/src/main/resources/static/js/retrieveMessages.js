@@ -22,24 +22,26 @@ document.querySelector('#userDesignation').value = user.username
 
 
 document.querySelector('#fetchBtn').addEventListener('click' , () => {
+    /*
     var pathURL = window.location.pathname
     fetch(pathURL + '/retrieveMessages')
         .then(returned => returned.json())
         .then( data => {
             //console.log(data)
         })
-
+*/
     })
 
+function updateChatMessages () {
+    var pathURL = window.location.pathname  + '/refreshChat'
+    $.get(pathURL).done(function(fragment) {
+        $("#chatWrapperDiv").replaceWith(fragment)
+    }) 
+}
 
 
+window.setInterval(updateChatMessages   , 500 )
 
-
-/*
-window.setInterval(() => {
-    window.location.reload()
-}, 500 )
-*/
 
 
 

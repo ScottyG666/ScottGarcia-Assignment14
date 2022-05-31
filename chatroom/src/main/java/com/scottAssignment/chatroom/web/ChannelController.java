@@ -57,8 +57,6 @@ public class ChannelController {
 	}
 	
 	
-	// THE MESSAGE MUST BE SAVED TO THE DESIGNATED CHANNEL!!!!
-	
 	//The TeaxtArea Message Arrives INSIDE the CHATMESSAGE OBJ assigned 
 	// to the CHATMESSAGE.CONTEXT within the HTML page
 	@PostMapping("/channels/{channelId}")
@@ -67,27 +65,29 @@ public class ChannelController {
 		// The passed user is assigned to the chatmessage as the USER who
 		//		Sent it
 		chatMessage.setSentBy(user);
-		
-		
 		channelService.addMessageToChannel(channelId, chatMessage);
-		
-		System.out.println("printing messages");
-		channelService.getChannelById(channelId).getMessages().forEach( message -> {
-			System.out.println(message);
-		});
-		
 		
 		return "redirect:/channels/" + channelId;
 	}
 	
 	
-	@GetMapping("channels/{channelId}/retrieveMessages")
+	@GetMapping("/channels/{channelId}/retrieveMessages")
 	@ResponseBody
 	public List<ChatMessage> fetchMessageForChannel (@PathVariable Long channelId) {
 		
 		return channelService.getChannelById(channelId).getMessages();
 	}
 	
+	
+	@GetMapping("/channels/{channelId}/refreshChat")
+	public String refreshChat (@PathVariable Long channelId, ModelMap model) {
+		
+		List<ChatMessage> messages = channelService.getChannelById(channelId).getMessages();
+		
+		model.put("chatroomMessages", messages );
+		
+		return "chatroom :: #chatWrapperDiv";
+	}
 	
 }
 
