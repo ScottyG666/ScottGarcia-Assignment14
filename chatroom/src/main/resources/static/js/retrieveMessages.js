@@ -16,22 +16,8 @@ document.querySelector('#userId').value = user.id
 document.querySelector('#userDesignation').value = user.username
 
 
-
-
-
-
-
-document.querySelector('#fetchBtn').addEventListener('click' , () => {
-    /*
-    var pathURL = window.location.pathname
-    fetch(pathURL + '/retrieveMessages')
-        .then(returned => returned.json())
-        .then( data => {
-            //console.log(data)
-        })
-*/
-    })
-
+// refreshes the ArrayList that conatins the Chat Messages for the particular channel,
+// and loads it into the view
 function updateChatMessages () {
     var pathURL = window.location.pathname  + '/refreshChat'
     $.get(pathURL).done(function(fragment) {
@@ -39,7 +25,7 @@ function updateChatMessages () {
     }) 
 }
 
-
+//Setting the Chat Messages to refresh every 1/2 second
 window.setInterval(updateChatMessages   , 500 )
 
 
