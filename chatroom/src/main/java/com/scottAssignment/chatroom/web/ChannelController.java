@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.scottAssignment.chatroom.domain.Channel;
 import com.scottAssignment.chatroom.domain.ChatMessage;
@@ -82,13 +83,19 @@ public class ChannelController {
 	}
 	
 	
-	/*	
-	 * 	
+	
 	@GetMapping("/channels/{channelId}/retrieveMessages")
-	@ResponseBody
-	public List<ChatMessage> fetchMessageForChannel (@PathVariable Long channelId) {
-		return channelService.getChannelById(channelId).getMessages();
+	public String fetchMessageForChannel (@PathVariable Long channelId ,ModelMap model) {
+		channelService.getChannelById(channelId).getMessages();
+		//Get the Associated channel and its its list of Messages
+				List<ChatMessage> messages = channelService.getChannelById(channelId).getMessages();
+				//putting the List on the view
+				model.put("chatroomMessages", messages );
+		
+		return "chatroom :: #chatWrapperDiv";
+		
+		
 	}
-	*/
+	
 }
 

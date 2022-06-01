@@ -1,0 +1,10 @@
+
+<div th:fragment="channelMessages">
+
+    <div class="chatWrapper" id="chatWrapperDiv" th:unless="${#lists.isEmpty(chatroomMessages)}">
+        <div  class="messageWrapper"  th:each="chatMessage : ${chatroomMessages}">
+            <span><strong> [[${chatMessage.sentBy.designation}]]:</strong> [[${chatMessage.context}]]</span>
+        </div>
+    </div> 
+
+</div>

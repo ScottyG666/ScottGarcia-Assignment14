@@ -19,13 +19,13 @@
 
   <body>
     <!--Container  which is going to be the reception area for messages connected to this channel-->
+
     
-    <div class="chatWrapper" id="chatWrapperDiv" th:unless="${#lists.isEmpty(chatroomMessages)}">
-      <div  class="messageWrapper"  th:each="chatMessage : ${chatroomMessages}">
-        <span><strong> [[${chatMessage.sentBy.designation}]]:</strong> [[${chatMessage.context}]]</span>
-      </div>
-    </div> 
+    <div th:replace="fragments/chat-Messages :: channelMessages"></div>
     
+    <!--
+    <div th:replace="fragments/chat-Messages :: channelMessages"></div>
+    -->
     <!--^^End of the chat messages container^^-->
 
     
@@ -47,5 +47,6 @@
         <button id="fetchBtn" type="button">Click to fetch</button>
        </div>
     <script type="text/javascript" src="/js/retrieveMessages.js"></script>
+    <script type="text/javascript" src="/js/refresh.js"></script>
   </body>
 </html>
